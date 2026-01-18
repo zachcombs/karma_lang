@@ -84,8 +84,8 @@ int main()
 
             return 1;
         }
-
-        std::cout << "PASS\n";
-        return 0;
     }
+
+    std::cout << "PASS\n";
+    return 0;
 }
