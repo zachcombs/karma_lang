@@ -21,6 +21,14 @@ namespace token
 
     inline constexpr TokenType ASSIGN = "=";
     inline constexpr TokenType PLUS = "+";
+    inline constexpr TokenType MINUS = "-";
+    inline constexpr TokenType BANG = "!";
+    inline constexpr TokenType ASTERISK = "*";
+    inline constexpr TokenType SLASH = "/";
+
+    inline constexpr TokenType LT = "<";
+    inline constexpr TokenType GT = ">";
+
     inline constexpr TokenType COMMA = ",";
     inline constexpr TokenType SEMICOLON = ";";
     inline constexpr TokenType LPAREN = "(";

@@ -54,6 +54,24 @@ namespace lexer
         case '+':
             tok = newToken(token::PLUS, ch);
             break;
+        case '-':
+            tok = newToken(token::MINUS, ch);
+            break;
+        case '!':
+            tok = newToken(token::BANG, ch);
+            break;
+        case '/':
+            tok = newToken(token::SLASH, ch);
+            break;
+        case '*':
+            tok = newToken(token::ASTERISK, ch);
+            break;
+        case '<':
+            tok = newToken(token::LT, ch);
+            break;
+        case '>':
+            tok = newToken(token::GT, ch);
+            break;
         case 0:
             tok.literal = "";
             tok.type = token::END_OF_FILE;

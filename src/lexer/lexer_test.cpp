@@ -22,7 +22,9 @@ int main()
         "    x + y;\n"
         "};\n"
         "\n"
-        "let result = add(five, ten);\n";
+        "let result = add(five, ten);\n"
+        "!-/*5;\n"
+        "5 < 10 > 5;\n";
 
     std::vector<Expected> tests = {
         {token::LET, "let"},
@@ -60,6 +62,18 @@ int main()
         {token::COMMA, ","},
         {token::IDENT, "ten"},
         {token::RPAREN, ")"},
+        {token::SEMICOLON, ";"},
+        {token::BANG, "!"},
+        {token::MINUS, "-"},
+        {token::SLASH, "/"},
+        {token::ASTERISK, "*"},
+        {token::INT, "5"},
+        {token::SEMICOLON, ";"},
+        {token::INT, "5"},
+        {token::LT, "<"},
+        {token::INT, "10"},
+        {token::GT, ">"},
+        {token::INT, "5"},
         {token::SEMICOLON, ";"},
         {token::END_OF_FILE, ""}};
 
