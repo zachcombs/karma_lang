@@ -31,7 +31,19 @@ namespace lexer
         switch (ch)
         {
         case '=':
-            tok = newToken(token::ASSIGN, ch);
+            if (peekChar() == '=')
+            {
+                char first = ch;
+                readChar();
+                std::string literal;
+                literal.push_back(first);
+                literal.push_back(ch);
+                tok = newToken(token::EQ, literal);
+            }
+            else
+            {
+                tok = newToken(token::ASSIGN, ch);
+            }
             break;
         case ';':
             tok = newToken(token::SEMICOLON, ch);
@@ -58,7 +70,19 @@ namespace lexer
             tok = newToken(token::MINUS, ch);
             break;
         case '!':
-            tok = newToken(token::BANG, ch);
+            if (peekChar() == '=')
+            {
+                char first = ch;
+                readChar();
+                std::string literal;
+                literal.push_back(first);
+                literal.push_back(ch);
+                tok = newToken(token::NOT_EQ, literal);
+            }
+            else
+            {
+                tok = newToken(token::BANG, ch);
+            }
             break;
         case '/':
             tok = newToken(token::SLASH, ch);
@@ -110,6 +134,15 @@ namespace lexer
         return tok;
     }
 
+    token::Token Lexer::newToken(token::TokenType tokenType, std::string literal)
+    {
+        token::Token tok{};
+        tok.type = tokenType;
+        tok.literal = std::move(literal);
+
+        return tok;
+    }
+
     std::string Lexer::readIdentifier()
     {
         int start = position;
@@ -152,5 +185,17 @@ namespace lexer
         }
 
         return input.substr(start, position - start);
+    }
+
+    char Lexer::peekChar()
+    {
+        if (readPosition >= static_cast<int>(input.size()))
+        {
+            return 0;
+        }
+        else
+        {
+            return input[readPosition];
+        }
     }
 }

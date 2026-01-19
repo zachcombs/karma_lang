@@ -29,6 +29,9 @@ namespace token
     inline constexpr TokenType LT = "<";
     inline constexpr TokenType GT = ">";
 
+    inline constexpr TokenType EQ = "==";
+    inline constexpr TokenType NOT_EQ = "!=";
+
     inline constexpr TokenType COMMA = ",";
     inline constexpr TokenType SEMICOLON = ";";
     inline constexpr TokenType LPAREN = "(";

@@ -30,7 +30,11 @@ int main()
         "   return true;\n"
         "} else {\n"
         "   return false;\n"
-        "}\n";
+        "}\n"
+        "\n"
+        "10 == 10;\n"
+        "10 != 9;\n"
+        "\n";
 
     std::vector<Expected> tests = {
         {token::LET, "let"},
@@ -98,6 +102,14 @@ int main()
         {token::FALSE, "false"},
         {token::SEMICOLON, ";"},
         {token::RBRACE, "}"},
+        {token::INT, "10"},
+        {token::EQ, "=="},
+        {token::INT, "10"},
+        {token::SEMICOLON, ";"},
+        {token::INT, "10"},
+        {token::NOT_EQ, "!="},
+        {token::INT, "9"},
+        {token::SEMICOLON, ";"},
         {token::END_OF_FILE, ""}};
 
     lexer::Lexer l(input);

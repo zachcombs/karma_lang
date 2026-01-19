@@ -20,10 +20,12 @@ namespace lexer
 
     private:
         token::Token newToken(token::TokenType, char ch);
+        token::Token newToken(token::TokenType, std::string literal);
         std::string readIdentifier();
         static bool isLetter(char ch);
         void skipWhitespace();
         std::string readNumber();
         static bool isDigit(char ch);
+        char peekChar();
     };
 }
