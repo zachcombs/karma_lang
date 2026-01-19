@@ -1,15 +1,15 @@
 #include <string>
 #include <iostream>
 
-#include <repl.hpp>
-#include <lexer/lexer.hpp>
-#include <token/token.hpp>
+#include "repl.hpp"
+#include "lexer/lexer.hpp"
+#include "token/token.hpp"
 
 namespace repl
 {
     const std::string prompt = ">> ";
 
-    void Start(std::istream in, std::ostream out)
+    void Start(std::istream &in, std::ostream &out)
     {
         std::string line;
 

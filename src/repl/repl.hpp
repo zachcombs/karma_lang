@@ -5,5 +5,5 @@
 
 namespace repl
 {
-    void Start(std::istream in, std::ostream out);
+    void Start(std::istream &in, std::ostream &out);
 }
