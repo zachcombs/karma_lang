@@ -24,7 +24,13 @@ int main()
         "\n"
         "let result = add(five, ten);\n"
         "!-/*5;\n"
-        "5 < 10 > 5;\n";
+        "5 < 10 > 5;\n"
+        "\n"
+        "if (5 < 10) {\n"
+        "   return true;\n"
+        "} else {\n"
+        "   return false;\n"
+        "}\n";
 
     std::vector<Expected> tests = {
         {token::LET, "let"},
@@ -75,6 +81,23 @@ int main()
         {token::GT, ">"},
         {token::INT, "5"},
         {token::SEMICOLON, ";"},
+        {token::IF, "if"},
+        {token::LPAREN, "("},
+        {token::INT, "5"},
+        {token::LT, "<"},
+        {token::INT, "10"},
+        {token::RPAREN, ")"},
+        {token::LBRACE, "{"},
+        {token::RETURN, "return"},
+        {token::TRUE, "true"},
+        {token::SEMICOLON, ";"},
+        {token::RBRACE, "}"},
+        {token::ELSE, "else"},
+        {token::LBRACE, "{"},
+        {token::RETURN, "return"},
+        {token::FALSE, "false"},
+        {token::SEMICOLON, ";"},
+        {token::RBRACE, "}"},
         {token::END_OF_FILE, ""}};
 
     lexer::Lexer l(input);

@@ -4,7 +4,12 @@ namespace token
 {
     static const std::unordered_map<std::string_view, TokenType> keywords{
         {"fn", FUNCTION},
-        {"let", LET}};
+        {"let", LET},
+        {"true", TRUE},
+        {"false", FALSE},
+        {"if", IF},
+        {"else", ELSE},
+        {"return", RETURN}};
 
     TokenType LookupIdent(std::string_view ident)
     {

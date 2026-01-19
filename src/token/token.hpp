@@ -38,6 +38,11 @@ namespace token
 
     inline constexpr TokenType FUNCTION = "FUNCTION";
     inline constexpr TokenType LET = "LET";
+    inline constexpr TokenType TRUE = "TRUE";
+    inline constexpr TokenType FALSE = "FALSE";
+    inline constexpr TokenType IF = "IF";
+    inline constexpr TokenType ELSE = "ELSE";
+    inline constexpr TokenType RETURN = "RETURN";
 
     TokenType LookupIdent(std::string_view ident);
 }
