@@ -22,5 +22,8 @@ namespace lexer
         token::Token newToken(token::TokenType, char ch);
         std::string readIdentifier();
         static bool isLetter(char ch);
+        void skipWhitespace();
+        std::string readNumber();
+        static bool isDigit(char ch);
     };
 }

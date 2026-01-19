@@ -26,6 +26,8 @@ namespace lexer
     {
         token::Token tok{};
 
+        skipWhitespace();
+
         switch (ch)
         {
         case '=':
@@ -62,6 +64,12 @@ namespace lexer
             {
                 tok.literal = readIdentifier();
                 tok.type = token::LookupIdent(tok.literal);
+                return tok;
+            }
+            else if (isDigit(ch))
+            {
+                tok.type = token::INT;
+                tok.literal = readNumber();
                 return tok;
             }
             else
@@ -101,5 +109,30 @@ namespace lexer
         return ('a' <= ch && ch <= 'z') ||
                ('A' <= ch && ch <= 'Z') ||
                (ch == '_');
+    }
+
+    bool Lexer::isDigit(char ch)
+    {
+        return '0' <= ch && ch <= '9';
+    }
+
+    void Lexer::skipWhitespace()
+    {
+        while (ch == ' ' || ch == '\t' || ch == '\n' || ch == '\r')
+        {
+            readChar();
+        }
+    }
+
+    std::string Lexer::readNumber()
+    {
+        int start = position;
+
+        while (isDigit(ch))
+        {
+            readChar();
+        }
+
+        return input.substr(start, position - start);
     }
 }
